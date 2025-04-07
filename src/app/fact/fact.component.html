@@ -1,0 +1,17 @@
+<!-- fact.component.html -->
+<div class="fact-container">
+    <div class="fact-card" [class.loading]="isLoading">
+      <div class="card-shine"></div>
+      <h2 class="card-title">Did You Know? 🌍</h2>
+      
+      <div class="fact-content">
+        <p *ngIf="!isLoading && fact">{{ fact }}</p>
+        <p *ngIf="!isLoading && !fact" class="error-message">{{ errorMessage }}</p>
+      </div>
+  
+      <div class="loading-spinner" *ngIf="isLoading"></div>
+  
+     
+      
+    </div>
+  </div>

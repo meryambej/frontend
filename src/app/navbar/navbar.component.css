@@ -1,0 +1,122 @@
+.sidebar {
+    width: 260px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(210, 235, 255, 0.25);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-right: 2px solid rgba(150, 210, 255, 0.3);
+    box-shadow: 10px 0 30px rgba(179, 217, 255, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 30px;
+    overflow: hidden;
+    z-index: 10;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+  }
+  
+  .logo-container {
+    margin-bottom: 40px;
+    z-index: 2;
+  }
+  
+  .logo {
+    width: 120px;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 0 25px rgba(173, 216, 230, 0.6);
+    animation: glowLogo 4s infinite alternate;
+    z-index: 2;
+  }
+  
+  @keyframes glowLogo {
+    from { box-shadow: 0 0 15px rgba(173, 216, 230, 0.4); }
+    to   { box-shadow: 0 0 35px rgba(173, 216, 250, 0.7); }
+  }
+  
+  nav {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 0 15px;
+    z-index: 2;
+  }
+  
+  nav a {
+    text-decoration: none;
+    padding: 14px 18px;
+    margin: 12px 0;
+    border-radius: 14px;
+    color: #075fae;
+    font-weight: 600;
+    font-size: 1.05rem;
+    background: #5db3fe;
+    backdrop-filter: blur(5px);
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    overflow: hidden;
+    z-index: 2;
+  }
+  
+  nav a:hover,
+  nav a.active {
+    color: #043a75;
+    background: rgba(210, 235, 255, 0.3);
+    box-shadow: 0 0 15px rgba(128, 191, 255, 0.4);
+    transform: translateX(6px);
+    border-left: 4px solid #5db3fe;
+  }
+  
+  /* 🔵 BUBBLES EFFECT */
+  .sidebar::before,
+  .sidebar::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(50, 165, 253, 0.977);
+    animation: floatBubble 20s linear infinite;
+    z-index: 1;
+  }
+  
+  .sidebar::before {
+    width: 80px;
+    height: 80px;
+    left: 10%;
+    bottom: -100px;
+    animation-delay: 0s;
+  }
+  
+  .sidebar::after {
+    width: 120px;
+    height: 120px;
+    left: 60%;
+    bottom: -150px;
+    animation-delay: 4s;
+  }
+  
+  @keyframes floatBubble {
+    0% {
+      transform: translateY(0) scale(1);
+      opacity: 0.2;
+    }
+    50% {
+      transform: translateY(-300px) scale(1.3);
+      opacity: 0.4;
+    }
+    100% {
+      transform: translateY(-600px) scale(1);
+      opacity: 0;
+    }
+  }
+  
+  
+  .sidebar::after,
+  .sidebar::before,
+  nav a:hover::before {
+    filter: blur(5px);
+  }
+  

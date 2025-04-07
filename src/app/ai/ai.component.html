@@ -1,0 +1,44 @@
+<!-- ai.component.html -->
+<div class="ai-container">
+  <div class="ai-avatar">
+    <img src="assets/images/avatar3.png" alt="AI Assistant" class="avatar-image">
+  </div>
+  
+  <div class="header">
+    <h1>Tun AI</h1>
+    <p>Ask anything about Tunisia</p>
+  </div>
+
+  <div class="search-container">
+    <div class="input-wrapper">
+      <input 
+        type="text" 
+        [(ngModel)]="searchQuery" 
+        placeholder="Make sure you question is Tunisian-related..."
+        (keyup.enter)="search()"
+      >
+      <button (click)="search()">
+        <i class="fas fa-search"></i>
+        <span class="button-text">Explore</span>
+      </button>
+    </div>
+  </div>
+
+  <div *ngIf="isLoading" class="loading">
+    <div class="hologram-spinner"></div>
+    <span>Uncovering secrets...</span>
+  </div>
+
+  <div *ngIf="errorMessage" class="error">
+    <i class="fas fa-exclamation-triangle"></i>
+    {{ errorMessage }}
+  </div>
+
+  <div *ngIf="response" class="response-container">
+    <div class="response-header">
+      <h3>Hidden Treasures for "{{ currentQuery }}"</h3>
+      <div class="decoration-line"></div>
+    </div>
+    <div class="response-content" [innerHTML]="formatResponse(response)"></div>
+  </div>
+</div>
